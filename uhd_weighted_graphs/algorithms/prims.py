@@ -5,7 +5,7 @@ from functions.prims_functions import cost, min_prims_edges      #File imported 
 def prims_algorithm(G, starting_node, draw = False, attrib = False):           # Defining Prim's Algorithm
     
     T = nx.Graph()
-    T.add_nodes(starting_node)
+    T.add_node(starting_node)
     
     if draw == True:                                                           # draws the sub graph with minimum cost
         draw_subtree(G, T)
