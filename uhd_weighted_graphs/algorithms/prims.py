@@ -1,13 +1,13 @@
-import networkx as nx
-from functions.drawings import draw_subtree
-from functions.prims_functions import cost, min_prims_edges
+import networkx as nx           # package required to build graphs and sub-graphs
+from functions.drawings import draw_subtree    #File imported from the draw_subtree
+from functions.prims_functions import cost, min_prims_edges      #File imported from the Prims_functions
 
-def prims_algorithm(G, starting_node, draw = False, attrib = False):
+def prims_algorithm(G, starting_node, draw = False, attrib = False):           # Defining Prim's Algorithm
     
     T = nx.Graph()
-    T.add_node(starting_node)
+    T.add_nodes(starting_node)
     
-    if draw == True:
+    if draw == True:                                                           # draws the sub graph with minimum cost
         draw_subtree(G, T)
         
     while set(T.nodes()) != set(G.nodes()):
@@ -17,10 +17,10 @@ def prims_algorithm(G, starting_node, draw = False, attrib = False):
             draw_subtree(G, T)
             
     
-    if attrib == True:
-        total_cost = sum(cost(G, e) for e in T.edges())
-        print('')
-        print('_______________PROPERTIES OF THE TREE T___________________')
+    if attrib == True:                                                        # defines and returns the Total cost,  
+        total_cost = sum(cost(G, e) for e in T.edges())                       # the number of edges,
+        print('')                                                             # and its corresponding weights of the sub-graph.  
+        print('_______________PROPERTIES OF THE TREE T___________________')    
         print('__________________________________________________________')
         print(f'V(T) = {list(T.nodes())}')
         print(f'V(T) = {list(T.edges())}')
