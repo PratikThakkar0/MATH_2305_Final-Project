@@ -1,7 +1,7 @@
-def cost(G, e):
+def cost(G, e):                                                 #displays(returns) the weights of the edges
     return G.edges()[e]['weight']
 
-def valid_incident_edges(G, T):
+def valid_incident_edges(G, T):                                 # adds the edges to the sub-graph
     
     incident_edges = []
     for e in G.edges():
@@ -17,7 +17,7 @@ def valid_incident_edges(G, T):
             
     return valid_edges
 
-def min_prims_edges(G, T):
+def min_prims_edges(G, T):                                    #defines and returns the minimum weight of the edge in sub-graph
     
     possible_edges = valid_incident_edges(G, T)
     min_cost_edge = possible_edges[0]
